@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Settings{{ (this.globalSettings) ? ' - ' + this.globalSettings.name : '' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button icon-only (click)="this.save()">
+        <ion-icon name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Settings{{ (this.globalSettings) ? ' - ' + this.globalSettings.name : '' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="this.globalSettings">
+    <ion-item>
+      <ion-label position="floating">Clip length</ion-label>
+      <ion-input name="clipLength" [(ngModel)]="this.globalSettings.settings.clipLength"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Debug</ion-label>
+      <ion-checkbox slot="end" name="debug" [(ngModel)]="this.globalSettings.settings.debug"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">FPS</ion-label>
+      <ion-input name="fps" [(ngModel)]="this.globalSettings.settings.fps"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sensor Sensitivity</ion-label>
+      <ion-select name="gSensorSensitivity" [(ngModel)]="this.globalSettings.settings.gSensorSensitivity">
+        <ion-select-option value="off">Off</ion-select-option>
+        <ion-select-option value="low">Low</ion-select-option>
+        <ion-select-option value="medium">Medium</ion-select-option>
+        <ion-select-option value="high">High</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Resolution</ion-label>
+      <ion-input name="resolution" [(ngModel)]="this.globalSettings.settings.resolution"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Flip Video</ion-label>
+      <ion-checkbox slot="end" name="flipVideo" [(ngModel)]="this.globalSettings.settings.flipVideo"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>GPS</ion-label>
+      <ion-checkbox slot="end" name="gps" [(ngModel)]="this.globalSettings.settings.gps"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Indicator</ion-label>
+      <ion-checkbox slot="end" name="indicator" [(ngModel)]="this.globalSettings.settings.indicator"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mic</ion-label>
+      <ion-checkbox slot="end" name="mic" [(ngModel)]="this.globalSettings.settings.mic"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Speaker</ion-label>
+      <ion-checkbox slot="end" name="speaker" [(ngModel)]="this.globalSettings.settings.speaker"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Video record</ion-label>
+      <ion-checkbox slot="end" name="videoRecord" [(ngModel)]="this.globalSettings.settings.videoRecord"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Network SSIS</ion-label>
+      <ion-input disabled [(ngModel)]="this.globalSettings.settings.network.ssid"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Network Password</ion-label>
+      <ion-input disabled [(ngModel)]="this.globalSettings.settings.network.password"></ion-input>
+    </ion-item>
+  </div>
+</ion-content>

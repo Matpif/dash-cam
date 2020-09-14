@@ -1,0 +1,28 @@
+<ion-card>
+  <img [src]="this.getUrlThumb()" />
+  <ion-card-header>
+    <ion-card-subtitle>
+      {{ this.getDate() }}
+    </ion-card-subtitle>
+
+    <ion-card-title>
+      {{ this.clip.clip }}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-row class="row-button">
+      <ion-col>
+        <button ion-button color="danger" icon-start (click)="this.trash()">
+          <ion-icon large name='trash'></ion-icon>
+          Delete
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="success" icon-start (click)="this.save()">
+          <ion-icon large name='save' ></ion-icon>
+          Save
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
